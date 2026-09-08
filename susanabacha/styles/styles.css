@@ -1,8 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Nunito:wght@400;600;700&display=swap');
+
+
 /* =========================================
-   GOOGLE FONTS
+   RESET Y BOX MODEL
    ========================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Nunito:wght@400;600;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 
 /* =========================================
@@ -22,12 +29,6 @@
 /* =========================================
    ESTILOS GENERALES
    ========================================= */
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
 
 body {
     font-family: 'Nunito', Arial, sans-serif;
@@ -74,53 +75,65 @@ a {
     text-decoration: none;
 }
 
-a:hover {
-    color: var(--rosa-malva);
-}
-
 
 /* =========================================
-   HEADER
+   HEADER Y NAVBAR - FLEXBOX
    ========================================= */
 
 .site-header {
     background-color: var(--verde-salvia);
-    padding: 25px 40px;
-    text-align: center;
+
+    padding: 20px 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 30px;
+}
+
+.header-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
 }
 
 .site-brand {
     font-family: 'Bree Serif', Georgia, serif;
     font-size: 2rem;
     color: var(--verde-profundo);
-    margin-bottom: 5px;
+    margin-bottom: 0;
 }
 
 .site-tagline {
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: var(--verde-profundo);
+    margin-bottom: 0;
 }
 
 
 /* =========================================
-   NAVEGACIÓN
+   NAVEGACIÓN - FLEXBOX
    ========================================= */
-
-.main-nav {
-    margin-top: 20px;
-}
 
 .main-nav ul {
     list-style: none;
+
     display: flex;
-    justify-content: center;
-    gap: 25px;
-    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+
+    gap: 20px;
 }
 
 .main-nav a {
+    display: block;
+
+    color: var(--verde-profundo);
     font-weight: 700;
+
     padding: 8px 12px;
+
     border-radius: 8px;
 }
 
@@ -131,29 +144,40 @@ a:hover {
 
 
 /* =========================================
-   HERO
+   HERO - FLEXBOX + BOX MODEL
    ========================================= */
 
 .hero {
     background-color: var(--beige);
+
     padding: 45px;
     margin-bottom: 35px;
+
     border-radius: 20px;
-    text-align: center;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 40px;
 }
 
-.hero p {
-    max-width: 750px;
-    margin: 0 auto 20px;
+.hero-content {
+    flex: 1;
+}
+
+.hero-content p {
+    max-width: 650px;
 }
 
 .hero figure {
-    margin-top: 25px;
+    flex: 0 1 400px;
+    text-align: center;
 }
 
 .hero img {
     width: 100%;
-    max-width: 500px;
+    max-width: 400px;
     border-radius: 20px;
 }
 
@@ -164,59 +188,105 @@ a:hover {
 
 
 /* =========================================
+   SECCIONES DE CONTENIDO
+   ========================================= */
+
+.content-section {
+    margin-bottom: 45px;
+    padding: 20px 0;
+}
+
+.section-content {
+    background-color: var(--blanco);
+
+    padding: 30px;
+
+    border-radius: 18px;
+
+    border: 2px solid var(--arena);
+}
+
+.section-heading {
+    margin-bottom: 25px;
+}
+
+
+/* =========================================
    LISTAS
    ========================================= */
 
 .feature-list {
-    max-width: 800px;
-    margin: 20px auto 40px;
-    padding-left: 25px;
+    background-color: var(--beige);
+
+    padding: 25px 30px 25px 50px;
+
+    border-radius: 18px;
+
+    margin-top: 20px;
 }
 
 .feature-list li {
     margin-bottom: 10px;
 }
 
+.feature-list li:last-child {
+    margin-bottom: 0;
+}
+
 
 /* =========================================
-   TARJETAS
+   TARJETAS - FLEXBOX
    ========================================= */
 
 .card-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
     gap: 25px;
-    margin-top: 30px;
+
+    margin: 30px 0;
 }
 
 .card {
+    flex: 1;
+
     background-color: var(--blanco);
+
     border: 2px solid var(--arena);
     border-radius: 18px;
+
     padding: 25px;
+
     box-shadow: 0 4px 10px rgba(47, 79, 70, 0.08);
+}
+
+.card p {
+    margin-bottom: 20px;
 }
 
 .card:hover {
     transform: translateY(-3px);
 }
 
-.card p {
-    margin-bottom: 15px;
-}
-
 
 /* =========================================
-   BOTONES Y ENLACES DESTACADOS
+   BOTONES
    ========================================= */
 
 .button-link {
     display: inline-block;
+
     background-color: var(--rosa-malva);
     color: var(--blanco);
+
     padding: 10px 20px;
+
     border-radius: 25px;
+
     font-weight: 700;
+
     margin-top: 10px;
 }
 
@@ -232,9 +302,13 @@ a:hover {
 
 .site-footer {
     background-color: var(--verde-profundo);
+
     color: var(--blanco);
+
     padding: 30px 20px;
+
     text-align: center;
+
     margin-top: 40px;
 }
 
@@ -252,8 +326,11 @@ a:hover {
 
 .site-footer ul {
     list-style: none;
+
     display: flex;
     justify-content: center;
+    align-items: center;
+
     gap: 20px;
 }
 
@@ -264,6 +341,44 @@ a:hover {
 
 @media (max-width: 768px) {
 
+    .site-header {
+        flex-direction: column;
+
+        justify-content: center;
+        align-items: center;
+
+        text-align: center;
+    }
+
+    .main-nav ul {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .hero {
+        flex-direction: column;
+
+        text-align: center;
+
+        padding: 30px 20px;
+    }
+
+    .hero figure {
+        flex-basis: auto;
+    }
+
+    .card-container {
+        flex-direction: column;
+    }
+
+    .card {
+        width: 100%;
+    }
+
+    main {
+        padding: 25px 15px;
+    }
+
     h1 {
         font-size: 2.2rem;
     }
@@ -272,24 +387,7 @@ a:hover {
         font-size: 1.7rem;
     }
 
-    .site-header {
-        padding: 20px;
-    }
-
-    .main-nav ul {
-        flex-direction: column;
-        gap: 8px;
-    }
-
-    .hero {
-        padding: 30px 20px;
-    }
-
-    .card-container {
-        grid-template-columns: 1fr;
-    }
-
-    main {
-        padding: 25px 15px;
+    .site-footer ul {
+        flex-wrap: wrap;
     }
 }
