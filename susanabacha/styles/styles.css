@@ -13,7 +13,7 @@
 
 
 /* =========================================
-   VARIABLES DE COLOR
+   VARIABLES
    ========================================= */
 
 :root {
@@ -27,18 +27,22 @@
 
 
 /* =========================================
-   ESTILOS GENERALES - MOBILE FIRST
+   ESTILOS GENERALES
    ========================================= */
 
 body {
     font-family: 'Nunito', Arial, sans-serif;
+
     background-color: var(--blanco);
+
     color: var(--verde-profundo);
+
     line-height: 1.6;
 }
 
 main {
     width: 100%;
+
     padding: 20px;
 }
 
@@ -46,145 +50,162 @@ h1,
 h2,
 h3 {
     font-family: 'Bree Serif', Georgia, serif;
+
     color: var(--verde-profundo);
 }
 
 h1 {
     font-size: 2.2rem;
+
     margin-bottom: 20px;
 }
 
 h2 {
     font-size: 1.8rem;
+
     margin-bottom: 15px;
 }
 
 h3 {
     font-size: 1.4rem;
+
     margin-bottom: 10px;
 }
 
 p {
     font-size: 1rem;
+
     margin-bottom: 15px;
 }
 
 a {
-    color: var(--verde-profundo);
     text-decoration: none;
 }
 
 
 /* =========================================
-   HEADER - FLEXBOX
+   NAVBAR BOOTSTRAP PERSONALIZADA
    ========================================= */
 
-.site-header {
+.site-navbar {
     background-color: var(--verde-salvia);
 
-    padding: 20px;
+    padding: 15px 20px;
 
-    display: flex;
-    flex-direction: column;
-
-    justify-content: center;
-    align-items: center;
-
-    gap: 20px;
-}
-
-.header-brand {
-    display: flex;
-    flex-direction: column;
-
-    align-items: center;
-
-    gap: 3px;
+    border-bottom: 2px solid var(--arena);
 }
 
 .site-brand {
     font-family: 'Bree Serif', Georgia, serif;
+
     font-size: 2rem;
 
-    color: var(--verde-profundo);
-
-    margin-bottom: 0;
+    color: var(--verde-profundo) !important;
 }
 
-.site-tagline {
-    font-size: 0.9rem;
-
-    color: var(--verde-profundo);
-
-    margin-bottom: 0;
-}
-
-
-/* =========================================
-   NAVEGACIÓN - FLEXBOX
-   ========================================= */
-
-.main-nav ul {
-    list-style: none;
-
-    display: flex;
-    flex-direction: column;
-
-    justify-content: center;
-    align-items: center;
-
-    gap: 10px;
-}
-
-.main-nav a {
-    display: block;
-
-    padding: 8px 12px;
-
+.site-navbar .nav-link {
     color: var(--verde-profundo);
 
     font-weight: 700;
 
-    border-radius: 8px;
-}
+    padding: 8px 12px;
 
-.main-nav a:hover {
-    background-color: var(--beige);
+    border-radius: 8px;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.2s ease;
 }
 
 
 /* =========================================
-   GRID PRINCIPAL - MOBILE FIRST
+   NAVBAR - HOVER
    ========================================= */
 
-.home-grid {
-    display: grid;
+.site-navbar .nav-link:hover {
+    background-color: var(--beige);
 
-    grid-template-columns: 1fr;
+    color: var(--rosa-malva);
 
-    grid-template-areas:
-        "hero"
-        "about"
-        "resources"
-        "featured";
-
-    gap: 25px;
-
-    width: 100%;
+    transform: translateY(-2px);
 }
 
 
+/* =========================================
+   NAVBAR - FOCUS
+   ========================================= */
+
+.site-navbar .nav-link:focus {
+    background-color: var(--beige);
+
+    color: var(--verde-profundo);
+
+    outline: 2px solid var(--rosa-malva);
+
+    outline-offset: 2px;
+}
+
+
+/* =========================================
+   NAVBAR - ACTIVE
+   ========================================= */
+
+.site-navbar .nav-link:active {
+    background-color: var(--rosa-malva);
+
+    color: var(--blanco);
+}
+
+
+/* =========================================
+   NAVBAR - ESTADO ACTIVO
+   ========================================= */
+
+.site-navbar .nav-link.active {
+    color: var(--rosa-malva);
+}
+
+
+/* =========================================
+   BOTÓN HAMBURGUESA
+   ========================================= */
+
+.site-navbar .navbar-toggler {
+    border: 2px solid var(--verde-profundo);
+
+    padding: 8px;
+
+    transition:
+        background-color 0.3s ease,
+        transform 0.2s ease;
+}
+
+.site-navbar .navbar-toggler:hover {
+    background-color: var(--beige);
+
+    transform: scale(1.05);
+}
+
+.site-navbar .navbar-toggler:focus {
+    box-shadow: 0 0 0 3px rgba(197, 138, 165, 0.35);
+}
+
+.site-navbar .navbar-toggler:active {
+    background-color: var(--rosa-malva);
+}
+
+
+/* =========================================
+   GRID PRINCIPAL
+   ========================================= */
+
+.home-grid,
 .formations-grid {
     display: grid;
 
     grid-template-columns: 1fr;
 
-    grid-template-areas:
-        "hero"
-        "intro"
-        "courses"
-        "benefits";
-
     gap: 25px;
 
     width: 100%;
@@ -192,45 +213,7 @@ a {
 
 
 /* =========================================
-   ÁREAS DEL GRID
-   ========================================= */
-
-.home-grid .hero {
-    grid-area: hero;
-}
-
-.about-section {
-    grid-area: about;
-}
-
-.resources-section {
-    grid-area: resources;
-}
-
-.featured-section {
-    grid-area: featured;
-}
-
-
-.formations-grid .hero {
-    grid-area: hero;
-}
-
-.formations-intro {
-    grid-area: intro;
-}
-
-.courses-section {
-    grid-area: courses;
-}
-
-.benefits-section {
-    grid-area: benefits;
-}
-
-
-/* =========================================
-   HERO - FLEXBOX
+   HERO
    ========================================= */
 
 .hero {
@@ -241,9 +224,11 @@ a {
     border-radius: 20px;
 
     display: flex;
+
     flex-direction: column;
 
     justify-content: center;
+
     align-items: center;
 
     gap: 25px;
@@ -263,6 +248,7 @@ a {
     width: 100%;
 
     display: flex;
+
     flex-direction: column;
 
     align-items: center;
@@ -272,6 +258,7 @@ a {
 
 .hero img {
     width: 100%;
+
     max-width: 400px;
 
     border-radius: 20px;
@@ -283,7 +270,7 @@ a {
 
 
 /* =========================================
-   SECCIONES DE CONTENIDO
+   SECCIONES
    ========================================= */
 
 .content-section {
@@ -319,6 +306,7 @@ a {
     border-radius: 18px;
 
     display: flex;
+
     flex-direction: column;
 
     gap: 10px;
@@ -330,7 +318,7 @@ a {
 
 
 /* =========================================
-   TARJETAS - FLEXBOX
+   TARJETAS
    ========================================= */
 
 .card-container {
@@ -339,6 +327,7 @@ a {
     flex-direction: column;
 
     justify-content: center;
+
     align-items: stretch;
 
     gap: 20px;
@@ -355,11 +344,39 @@ a {
 
     padding: 25px 20px;
 
-    box-shadow: 0 4px 10px rgba(47, 79, 70, 0.08);
+    box-shadow:
+        0 4px 10px rgba(47, 79, 70, 0.08);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
 }
 
-.card p {
-    margin-bottom: 20px;
+
+/* =========================================
+   TARJETAS - HOVER
+   ========================================= */
+
+.card:hover {
+    transform: translateY(-5px);
+
+    border-color: var(--rosa-malva);
+
+    box-shadow:
+        0 8px 20px rgba(47, 79, 70, 0.15);
+}
+
+
+/* =========================================
+   TARJETAS - FOCUS
+   ========================================= */
+
+.card:focus-within {
+    border-color: var(--rosa-malva);
+
+    box-shadow:
+        0 0 0 4px rgba(197, 138, 165, 0.2);
 }
 
 
@@ -381,12 +398,159 @@ a {
     font-weight: 700;
 
     margin-top: 10px;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.2s ease,
+        box-shadow 0.3s ease;
 }
+
+
+/* =========================================
+   BOTONES - HOVER
+   ========================================= */
 
 .button-link:hover {
     background-color: var(--verde-profundo);
 
     color: var(--blanco);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 5px 12px rgba(47, 79, 70, 0.2);
+}
+
+
+/* =========================================
+   BOTONES - FOCUS
+   ========================================= */
+
+.button-link:focus {
+    background-color: var(--verde-profundo);
+
+    color: var(--blanco);
+
+    outline: 3px solid var(--rosa-malva);
+
+    outline-offset: 3px;
+}
+
+
+/* =========================================
+   BOTONES - ACTIVE
+   ========================================= */
+
+.button-link:active {
+    background-color: var(--rosa-malva);
+
+    color: var(--blanco);
+
+    transform: translateY(1px);
+
+    box-shadow: none;
+}
+
+
+/* =========================================
+   CAROUSEL BOOTSTRAP
+   ========================================= */
+
+.custom-carousel {
+    max-width: 900px;
+
+    margin: 25px auto 0;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 5px 15px rgba(47, 79, 70, 0.15);
+}
+
+.custom-carousel .carousel-item img {
+    width: 100%;
+
+    height: 350px;
+
+    object-fit: cover;
+}
+
+
+/* =========================================
+   CAROUSEL CAPTIONS
+   ========================================= */
+
+.custom-carousel .carousel-caption {
+    background-color: rgba(47, 79, 70, 0.78);
+
+    padding: 15px;
+
+    border-radius: 12px;
+}
+
+.custom-carousel .carousel-caption h3 {
+    color: var(--blanco);
+
+    margin-bottom: 5px;
+}
+
+.custom-carousel .carousel-caption p {
+    color: var(--blanco);
+
+    margin-bottom: 0;
+}
+
+
+/* =========================================
+   CAROUSEL - CONTROLES
+   ========================================= */
+
+.custom-carousel .carousel-control-prev,
+.custom-carousel .carousel-control-next {
+    transition:
+        background-color 0.3s ease,
+        opacity 0.3s ease;
+}
+
+.custom-carousel .carousel-control-prev:hover,
+.custom-carousel .carousel-control-next:hover {
+    background-color: rgba(47, 79, 70, 0.2);
+}
+
+.custom-carousel .carousel-control-prev:focus,
+.custom-carousel .carousel-control-next:focus {
+    outline: 3px solid var(--rosa-malva);
+
+    outline-offset: -3px;
+}
+
+.custom-carousel .carousel-control-prev:active,
+.custom-carousel .carousel-control-next:active {
+    background-color: rgba(197, 138, 165, 0.5);
+}
+
+
+/* =========================================
+   CAROUSEL - INDICADORES
+   ========================================= */
+
+.custom-carousel .carousel-indicators button {
+    transition:
+        opacity 0.3s ease,
+        transform 0.2s ease;
+}
+
+.custom-carousel .carousel-indicators button:hover {
+    transform: scale(1.2);
+}
+
+.custom-carousel .carousel-indicators button:focus {
+    outline: 2px solid var(--rosa-malva);
+
+    outline-offset: 3px;
 }
 
 
@@ -412,6 +576,26 @@ a {
 
 .site-footer a {
     color: var(--blanco);
+
+    transition:
+        color 0.3s ease,
+        transform 0.2s ease;
+}
+
+.site-footer a:hover {
+    color: var(--rosa-malva);
+}
+
+.site-footer a:focus {
+    color: var(--rosa-malva);
+
+    outline: 2px solid var(--rosa-malva);
+
+    outline-offset: 3px;
+}
+
+.site-footer a:active {
+    color: var(--beige);
 }
 
 .site-footer ul {
@@ -420,6 +604,7 @@ a {
     display: flex;
 
     justify-content: center;
+
     align-items: center;
 
     gap: 20px;
@@ -427,46 +612,12 @@ a {
 
 
 /* =========================================
-   BREAKPOINT DESKTOP - 1024px
+   RESPONSIVE DESKTOP
    ========================================= */
 
 @media (min-width: 1024px) {
 
-    /* =====================================
-       NAVBAR DESKTOP
-       ===================================== */
-
-    .site-header {
-        padding: 20px 40px;
-
-        flex-direction: row;
-
-        justify-content: space-between;
-        align-items: center;
-
-        gap: 30px;
-    }
-
-    .header-brand {
-        align-items: flex-start;
-    }
-
-    .main-nav ul {
-        flex-direction: row;
-
-        justify-content: flex-end;
-        align-items: center;
-
-        gap: 20px;
-    }
-
-
-    /* =====================================
-       GRID DE INDEX
-       ===================================== */
-
     .home-grid {
-
         max-width: 1200px;
 
         margin: 0 auto;
@@ -482,12 +633,7 @@ a {
     }
 
 
-    /* =====================================
-       GRID DE FORMACIONES
-       ===================================== */
-
     .formations-grid {
-
         max-width: 1200px;
 
         margin: 0 auto;
@@ -504,15 +650,11 @@ a {
     }
 
 
-    /* =====================================
-       HERO DESKTOP
-       ===================================== */
-
     .hero {
-
         flex-direction: row;
 
         justify-content: space-between;
+
         align-items: center;
 
         padding: 45px;
@@ -522,36 +664,35 @@ a {
         text-align: left;
     }
 
+
     .hero figure {
         flex: 0 1 400px;
     }
 
 
-    /* =====================================
-       TARJETAS DESKTOP
-       ===================================== */
-
     .card-container {
-
         flex-direction: row;
 
         justify-content: center;
+
         align-items: stretch;
 
         gap: 25px;
     }
 
 
-    /* =====================================
-       TIPOGRAFÍA DESKTOP
-       ===================================== */
-
     h1 {
         font-size: 2.8rem;
     }
 
+
     h2 {
         font-size: 2rem;
+    }
+
+
+    .custom-carousel .carousel-item img {
+        height: 450px;
     }
 
 }
