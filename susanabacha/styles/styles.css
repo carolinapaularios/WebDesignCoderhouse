@@ -1,9 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Nunito:wght@400;600;700&display=swap');
-
-
-/* =========================================
-   RESET Y BOX MODEL
-   ========================================= */
+/* ==================================================
+   RESET
+================================================== */
 
 * {
     margin: 0;
@@ -12,9 +9,9 @@
 }
 
 
-/* =========================================
+/* ==================================================
    VARIABLES
-   ========================================= */
+================================================== */
 
 :root {
     --verde-profundo: #2F4F46;
@@ -26,55 +23,48 @@
 }
 
 
-/* =========================================
+/* ==================================================
    ESTILOS GENERALES
-   ========================================= */
+================================================== */
+
+html {
+    scroll-behavior: smooth;
+}
 
 body {
-    font-family: 'Nunito', Arial, sans-serif;
-
+    font-family: "Nunito", Arial, sans-serif;
     background-color: var(--blanco);
-
     color: var(--verde-profundo);
-
     line-height: 1.6;
 }
 
 main {
     width: 100%;
-
-    padding: 20px;
 }
 
 h1,
 h2,
 h3 {
-    font-family: 'Bree Serif', Georgia, serif;
-
+    font-family: "Bree Serif", Georgia, serif;
     color: var(--verde-profundo);
 }
 
 h1 {
-    font-size: 2.2rem;
-
+    font-size: 2.3rem;
     margin-bottom: 20px;
 }
 
 h2 {
     font-size: 1.8rem;
-
     margin-bottom: 15px;
 }
 
 h3 {
     font-size: 1.4rem;
-
     margin-bottom: 10px;
 }
 
 p {
-    font-size: 1rem;
-
     margin-bottom: 15px;
 }
 
@@ -83,107 +73,77 @@ a {
 }
 
 
-/* =========================================
-   NAVBAR BOOTSTRAP PERSONALIZADA
-   ========================================= */
+/* ==================================================
+   NAVBAR BOOTSTRAP
+================================================== */
 
 .site-navbar {
     background-color: var(--verde-salvia);
-
     padding: 15px 20px;
-
     border-bottom: 2px solid var(--arena);
 }
 
-.site-brand {
-    font-family: 'Bree Serif', Georgia, serif;
+.site-navbar .site-brand {
+    font-family: "Bree Serif", Georgia, serif;
+    font-size: 1.8rem;
+    color: var(--verde-profundo);
+    transition: all 0.3s ease;
+}
 
-    font-size: 2rem;
+.site-navbar .site-brand:hover {
+    color: var(--rosa-malva);
+    transform: translateY(-2px);
+}
 
-    color: var(--verde-profundo) !important;
+.site-navbar .site-brand:focus {
+    color: var(--rosa-malva);
+    outline: 2px solid var(--rosa-malva);
+    outline-offset: 3px;
 }
 
 .site-navbar .nav-link {
     color: var(--verde-profundo);
-
     font-weight: 700;
-
     padding: 8px 12px;
-
     border-radius: 8px;
-
-    transition:
-        background-color 0.3s ease,
-        color 0.3s ease,
-        transform 0.2s ease;
+    transition: all 0.3s ease;
 }
-
-
-/* =========================================
-   NAVBAR - HOVER
-   ========================================= */
 
 .site-navbar .nav-link:hover {
     background-color: var(--beige);
-
     color: var(--rosa-malva);
-
     transform: translateY(-2px);
 }
 
-
-/* =========================================
-   NAVBAR - FOCUS
-   ========================================= */
-
 .site-navbar .nav-link:focus {
     background-color: var(--beige);
-
     color: var(--verde-profundo);
-
     outline: 2px solid var(--rosa-malva);
-
     outline-offset: 2px;
 }
 
-
-/* =========================================
-   NAVBAR - ACTIVE
-   ========================================= */
-
 .site-navbar .nav-link:active {
     background-color: var(--rosa-malva);
-
     color: var(--blanco);
 }
-
-
-/* =========================================
-   NAVBAR - ESTADO ACTIVO
-   ========================================= */
 
 .site-navbar .nav-link.active {
     color: var(--rosa-malva);
 }
 
 
-/* =========================================
-   BOTÓN HAMBURGUESA
-   ========================================= */
+/* ==================================================
+   HAMBURGER
+================================================== */
 
 .site-navbar .navbar-toggler {
     border: 2px solid var(--verde-profundo);
-
     padding: 8px;
-
-    transition:
-        background-color 0.3s ease,
-        transform 0.2s ease;
+    transition: all 0.3s ease;
 }
 
 .site-navbar .navbar-toggler:hover {
     background-color: var(--beige);
-
     transform: scale(1.05);
 }
 
@@ -196,39 +156,99 @@ a {
 }
 
 
-/* =========================================
+/* ==================================================
    GRID PRINCIPAL
-   ========================================= */
+================================================== */
 
-.home-grid,
+.home-grid {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    grid-template-areas:
+        "hero"
+        "about"
+        "resources"
+        "featured";
+
+    gap: 25px;
+
+    width: 100%;
+
+    padding: 20px;
+}
+
 .formations-grid {
     display: grid;
 
     grid-template-columns: 1fr;
 
+    grid-template-areas:
+        "hero"
+        "intro"
+        "courses"
+        "benefits";
+
     gap: 25px;
 
     width: 100%;
+
+    padding: 20px;
 }
 
 
-/* =========================================
+/* ==================================================
+   GRID AREAS
+================================================== */
+
+.home-grid .hero {
+    grid-area: hero;
+}
+
+.about-section {
+    grid-area: about;
+}
+
+.resources-section {
+    grid-area: resources;
+}
+
+.featured-section {
+    grid-area: featured;
+}
+
+.formations-grid .hero {
+    grid-area: hero;
+}
+
+.formations-intro {
+    grid-area: intro;
+}
+
+.courses-section {
+    grid-area: courses;
+}
+
+.benefits-section {
+    grid-area: benefits;
+}
+
+
+/* ==================================================
    HERO
-   ========================================= */
+================================================== */
 
 .hero {
     background-color: var(--beige);
 
-    padding: 30px 20px;
+    padding: 35px 25px;
 
     border-radius: 20px;
 
     display: flex;
-
     flex-direction: column;
 
     justify-content: center;
-
     align-items: center;
 
     gap: 25px;
@@ -237,18 +257,26 @@ a {
 }
 
 .hero-content {
-    flex: 1;
+    width: 100%;
+    max-width: 750px;
+}
+
+.eyebrow {
+    color: var(--rosa-malva);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
 }
 
 .hero-content p {
-    max-width: 650px;
+    max-width: 700px;
 }
 
 .hero figure {
     width: 100%;
 
     display: flex;
-
     flex-direction: column;
 
     align-items: center;
@@ -258,9 +286,7 @@ a {
 
 .hero img {
     width: 100%;
-
-    max-width: 400px;
-
+    max-width: 420px;
     border-radius: 20px;
 }
 
@@ -269,14 +295,12 @@ a {
 }
 
 
-/* =========================================
+/* ==================================================
    SECCIONES
-   ========================================= */
+================================================== */
 
 .content-section {
     width: 100%;
-
-    padding: 20px 0;
 }
 
 .section-content {
@@ -287,16 +311,24 @@ a {
     border: 2px solid var(--arena);
 
     border-radius: 18px;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
 }
 
-.section-heading {
-    margin-bottom: 20px;
+.section-content:hover {
+    border-color: var(--rosa-malva);
+
+    box-shadow:
+        0 8px 20px rgba(47, 79, 70, 0.10);
 }
 
 
-/* =========================================
+/* ==================================================
    LISTAS
-   ========================================= */
+================================================== */
 
 .feature-list {
     background-color: var(--beige);
@@ -306,7 +338,6 @@ a {
     border-radius: 18px;
 
     display: flex;
-
     flex-direction: column;
 
     gap: 10px;
@@ -317,9 +348,9 @@ a {
 }
 
 
-/* =========================================
-   TARJETAS
-   ========================================= */
+/* ==================================================
+   CARDS
+================================================== */
 
 .card-container {
     display: flex;
@@ -353,11 +384,6 @@ a {
         border-color 0.3s ease;
 }
 
-
-/* =========================================
-   TARJETAS - HOVER
-   ========================================= */
-
 .card:hover {
     transform: translateY(-5px);
 
@@ -367,11 +393,6 @@ a {
         0 8px 20px rgba(47, 79, 70, 0.15);
 }
 
-
-/* =========================================
-   TARJETAS - FOCUS
-   ========================================= */
-
 .card:focus-within {
     border-color: var(--rosa-malva);
 
@@ -380,9 +401,9 @@ a {
 }
 
 
-/* =========================================
+/* ==================================================
    BOTONES
-   ========================================= */
+================================================== */
 
 .button-link {
     display: inline-block;
@@ -399,17 +420,8 @@ a {
 
     margin-top: 10px;
 
-    transition:
-        background-color 0.3s ease,
-        color 0.3s ease,
-        transform 0.2s ease,
-        box-shadow 0.3s ease;
+    transition: all 0.3s ease;
 }
-
-
-/* =========================================
-   BOTONES - HOVER
-   ========================================= */
 
 .button-link:hover {
     background-color: var(--verde-profundo);
@@ -422,11 +434,6 @@ a {
         0 5px 12px rgba(47, 79, 70, 0.2);
 }
 
-
-/* =========================================
-   BOTONES - FOCUS
-   ========================================= */
-
 .button-link:focus {
     background-color: var(--verde-profundo);
 
@@ -436,11 +443,6 @@ a {
 
     outline-offset: 3px;
 }
-
-
-/* =========================================
-   BOTONES - ACTIVE
-   ========================================= */
 
 .button-link:active {
     background-color: var(--rosa-malva);
@@ -453,11 +455,13 @@ a {
 }
 
 
-/* =========================================
-   CAROUSEL BOOTSTRAP
-   ========================================= */
+/* ==================================================
+   CAROUSEL
+================================================== */
 
 .custom-carousel {
+    width: 100%;
+
     max-width: 900px;
 
     margin: 25px auto 0;
@@ -473,74 +477,69 @@ a {
 .custom-carousel .carousel-item img {
     width: 100%;
 
-    height: 350px;
+    height: 300px;
 
     object-fit: cover;
 }
 
 
-/* =========================================
-   CAROUSEL CAPTIONS
-   ========================================= */
+/* ==================================================
+   CAROUSEL CAPTION
+================================================== */
 
 .custom-carousel .carousel-caption {
-    background-color: rgba(47, 79, 70, 0.78);
+    background-color: rgba(47, 79, 70, 0.82);
 
-    padding: 15px;
+    padding: 12px;
 
     border-radius: 12px;
+
+    margin: 0 10px 15px;
 }
 
 .custom-carousel .carousel-caption h3 {
     color: var(--blanco);
-
     margin-bottom: 5px;
 }
 
 .custom-carousel .carousel-caption p {
     color: var(--blanco);
-
     margin-bottom: 0;
 }
 
 
-/* =========================================
-   CAROUSEL - CONTROLES
-   ========================================= */
+/* ==================================================
+   CAROUSEL CONTROLES
+================================================== */
 
 .custom-carousel .carousel-control-prev,
 .custom-carousel .carousel-control-next {
-    transition:
-        background-color 0.3s ease,
-        opacity 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .custom-carousel .carousel-control-prev:hover,
 .custom-carousel .carousel-control-next:hover {
-    background-color: rgba(47, 79, 70, 0.2);
+    background-color: rgba(47, 79, 70, 0.20);
 }
 
 .custom-carousel .carousel-control-prev:focus,
 .custom-carousel .carousel-control-next:focus {
     outline: 3px solid var(--rosa-malva);
-
     outline-offset: -3px;
 }
 
 .custom-carousel .carousel-control-prev:active,
 .custom-carousel .carousel-control-next:active {
-    background-color: rgba(197, 138, 165, 0.5);
+    background-color: rgba(197, 138, 165, 0.50);
 }
 
 
-/* =========================================
-   CAROUSEL - INDICADORES
-   ========================================= */
+/* ==================================================
+   CAROUSEL INDICADORES
+================================================== */
 
 .custom-carousel .carousel-indicators button {
-    transition:
-        opacity 0.3s ease,
-        transform 0.2s ease;
+    transition: all 0.3s ease;
 }
 
 .custom-carousel .carousel-indicators button:hover {
@@ -549,14 +548,71 @@ a {
 
 .custom-carousel .carousel-indicators button:focus {
     outline: 2px solid var(--rosa-malva);
-
     outline-offset: 3px;
 }
 
+.custom-carousel .carousel-indicators button:active {
+    transform: scale(0.9);
+}
 
-/* =========================================
+
+/* ==================================================
+   PÁGINAS INTERNAS
+================================================== */
+
+.inner-page {
+    padding: 20px;
+}
+
+.inner-page > .hero {
+    margin-bottom: 25px;
+}
+
+
+/* ==================================================
+   CONTACTO
+================================================== */
+
+.contact-grid {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 25px;
+
+    padding: 20px;
+}
+
+.form-label {
+    font-weight: 700;
+    color: var(--verde-profundo);
+}
+
+.form-control {
+    border: 2px solid var(--arena);
+
+    border-radius: 8px;
+
+    padding: 10px;
+
+    transition: all 0.3s ease;
+}
+
+.form-control:hover {
+    border-color: var(--verde-salvia);
+}
+
+.form-control:focus {
+    border-color: var(--rosa-malva);
+
+    box-shadow:
+        0 0 0 3px rgba(197, 138, 165, 0.20);
+}
+
+
+/* ==================================================
    FOOTER
-   ========================================= */
+================================================== */
 
 .site-footer {
     background-color: var(--verde-profundo);
@@ -574,12 +630,24 @@ a {
     margin-bottom: 15px;
 }
 
+.site-footer ul {
+    list-style: none;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 0;
+}
+
 .site-footer a {
     color: var(--blanco);
 
-    transition:
-        color 0.3s ease,
-        transform 0.2s ease;
+    transition: all 0.3s ease;
 }
 
 .site-footer a:hover {
@@ -598,24 +666,45 @@ a {
     color: var(--beige);
 }
 
-.site-footer ul {
-    list-style: none;
 
-    display: flex;
+/* ==================================================
+   RESPONSIVE - TABLET
+================================================== */
 
-    justify-content: center;
+@media (min-width: 768px) {
 
-    align-items: center;
+    .card-container {
+        flex-direction: row;
+    }
 
-    gap: 20px;
+    .contact-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .custom-carousel .carousel-item img {
+        height: 400px;
+    }
+
 }
 
 
-/* =========================================
-   RESPONSIVE DESKTOP
-   ========================================= */
+/* ==================================================
+   RESPONSIVE - DESKTOP
+================================================== */
 
 @media (min-width: 1024px) {
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .site-navbar {
+        padding: 18px 45px;
+    }
 
     .home-grid {
         max-width: 1200px;
@@ -630,66 +719,44 @@ a {
             "featured featured";
 
         gap: 35px;
-    }
 
+        padding: 35px;
+    }
 
     .formations-grid {
         max-width: 1200px;
 
         margin: 0 auto;
 
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
 
         grid-template-areas:
-            "hero hero hero"
-            "intro intro intro"
-            "courses courses courses"
-            "benefits benefits benefits";
+            "hero hero"
+            "intro intro"
+            "courses benefits";
 
         gap: 35px;
+
+        padding: 35px;
     }
 
+    .inner-page {
+        max-width: 1200px;
 
-    .hero {
-        flex-direction: row;
+        margin: 0 auto;
 
-        justify-content: space-between;
-
-        align-items: center;
-
-        padding: 45px;
-
-        gap: 50px;
-
-        text-align: left;
+        padding: 35px;
     }
 
+    .contact-grid {
+        max-width: 1200px;
 
-    .hero figure {
-        flex: 0 1 400px;
+        margin: 0 auto;
+
+        grid-template-columns: 1fr 1fr;
+
+        padding: 35px;
     }
-
-
-    .card-container {
-        flex-direction: row;
-
-        justify-content: center;
-
-        align-items: stretch;
-
-        gap: 25px;
-    }
-
-
-    h1 {
-        font-size: 2.8rem;
-    }
-
-
-    h2 {
-        font-size: 2rem;
-    }
-
 
     .custom-carousel .carousel-item img {
         height: 450px;
